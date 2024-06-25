@@ -22,8 +22,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
-     */
-public final class Sample<Param1, Param2> extends JavaPlugin implements Listener {
+public final class Sample extends JavaPlugin implements Listener {
 
   private BigInteger count = BigInteger.ZERO;
 
@@ -44,7 +43,7 @@ public final class Sample<Param1, Param2> extends JavaPlugin implements Listener
     Player player = e.getPlayer();
     World world = player.getWorld();
 
-    List<Color> colorList = List.of(Color.AQUA, Color.ORANGE, Color.ORANGE, Color.NAVY);
+    List<Color> colorList = List.of(Color.WHITE, Color.ORANGE, Color.ORANGE, Color.NAVY);
     if (count.isProbablePrime(1)) {
       for (Color color : colorList) {
         // 花火オブジェクトをプレイヤーのロケーション地点に対して出現させる。
@@ -58,7 +57,7 @@ public final class Sample<Param1, Param2> extends JavaPlugin implements Listener
         fireworkMeta.addEffect(
             FireworkEffect.builder()
                 .withColor(color)
-                .with(Type.BALL)
+                .with(Type.CREEPER)
                 .withFlicker()
                 .build());
         fireworkMeta.setPower(1 + 1);
@@ -66,7 +65,7 @@ public final class Sample<Param1, Param2> extends JavaPlugin implements Listener
         // 追加した情報で再設定する。
         firework.setFireworkMeta(fireworkMeta);
       }
-      Path path = Path.of("fireworks.text");
+      Path path = Path.of("fireworks.txt");
       Files.writeString(path, "かごやー");
       player.sendMessage(Files.readString(path));
     }
