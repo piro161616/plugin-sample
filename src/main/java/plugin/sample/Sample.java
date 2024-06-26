@@ -33,7 +33,7 @@ public final class Sample extends JavaPlugin implements Listener {
 
   /**
    * プレイヤーがスニークを開始/終了する際に起動されるイベントハンドラ。
-   *
+   *　★プルリクの課題のために、ここにコメント追記します。あとで削除！
    * @param e イベント
    */
 
